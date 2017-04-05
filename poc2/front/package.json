@@ -1,0 +1,19 @@
+{
+  "name": "angular-app",
+  "version": "1.0.0",
+  "description": "poc of desmonstration",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-ui-router": "0.2.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jefferson Santos",
+  "license": "ISC"
+}

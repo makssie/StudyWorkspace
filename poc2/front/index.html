@@ -1,0 +1,81 @@
+<!doctype html>
+<html ng-app="AngularApp">
+<head>
+  <title>Lista de Usuários com AngularJS</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/toastr.css">
+  <link rel="stylesheet" href="css/application.css">
+
+  <script src="lib/jquery.min.js"></script>
+  <!--<script src="lib/angular.min.js"></script>-->
+  <script src="lib/toastr.min.js"></script>
+  <!--<script src="app/controllers.js"></script>-->
+
+  <script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>	
+
+  <script type="text/javascript" src="/app/app.module.js"></script>
+	<script type="text/javascript" src="/app/app.config.js"></script>
+	<script type="text/javascript" src="/app/app.constants.js"></script>
+	<script type="text/javascript" src="/app/app.run.js"></script>
+
+	<script type="text/javascript" src="/app/controllers/user.controller.js"></script>
+
+  <script type="text/javascript" src="/app/services/user.service.js"></script>
+
+
+</head>
+<body>
+  <div class="container" ng-controller="UserController as vm">
+
+    <div class="row">
+      <div class="page-header">
+        <div class="span9">
+          <h1>Lista de Usuários</h1>
+        </div>
+        <!--div class="span3">
+          <input type="search" ng-model="search" placeholder="Buscar por...">
+        </div-->
+      </div>
+    </div>
+
+    <div class="row">
+      <table id="lista-compras" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in vm.arrUsers | filter:search" class="comprado-{{ item.comprado }}">
+            <td><strong>{{ user.username }}</strong></td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button class="btn btn-warning btn-small" ng-click="vm.editarItem($index)">
+                <i class="icon-pencil icon-white"></i> Editar
+              </button>
+              <button class="btn btn-danger btn-small" ng-click="vm.deleteItem($index)">
+                <i class="icon-trash icon-white"></i> Deletar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form class="row form-inline" name="validarValoresPreenchidos">
+      <input type="text" ng-model="vm.user.name" placeholder="Nome" required>
+      <input type="email" ng-model="vm.user.email" placeholder="E-mail"  required>
+      <button ng-hide="edit" class="btn btn-success" ng-disabled="validarValoresPreenchidos.$invalid" ng-click="vm.adicionaItem()">
+        <i class="icon-plus icon-white"></i> adicionar
+      </button>
+      <button ng-show="edit" class="btn btn-success" ng-disabled="validarValoresPreenchidos.$invalid" ng-click="vm.applyChanges()">
+        <i class="icon-ok icon-white"></i> salvar
+      </button>
+    </form>
+  </div>
+  
+</body>
+</html>

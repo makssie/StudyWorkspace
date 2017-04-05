@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "poc2 backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "turma do santander",
+  "license": "MIT",
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "http-status-codes": "^1.1.6"
+  }
+}
